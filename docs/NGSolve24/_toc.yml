@@ -1,0 +1,155 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+
+parts:
+  - caption: Tutorials
+    numbered: True
+    chapters:
+    - file: tutorials/00_tutorials_intro.ipynb
+    - file: tutorials/basics.ipynb
+      sections:
+      - file: tutorials/01_first_example.ipynb
+      - file: tutorials/02_coefficientfunction.ipynb
+      - file: tutorials/03_occ.ipynb
+      - file: tutorials/04_more_adv_example.ipynb
+    - file: tutorials/intermediate.ipynb
+      sections:
+      - file: tutorials/05_preconditioner.ipynb
+      - file: tutorials/06_adaptivity.ipynb
+      - file: tutorials/07_helmholtz.ipynb
+      - file: tutorials/08_time_dep_problems.ipynb
+    - file: tutorials/advanced.ipynb
+      sections:
+      - file: tutorials/09_Hcurl_egenvalues.ipynb
+      - file: tutorials/10_Hdiv_mixed_formulation.ipynb
+      - file: tutorials/11_dg.ipynb
+      - file: tutorials/12_hdg.ipynb
+      - file: tutorials/13_nonlinear.ipynb
+    - file: tutorials/00_dynamics.ipynb
+
+  - caption: Solids and Structures
+    numbered: True
+    chapters:
+    - file: SaS/elasticity3D.ipynb
+      sections:
+      - file: SaS/linearelasticity.ipynb
+      - file: SaS/nonlinearelasticity.ipynb
+      - file: SaS/inflatingballoon.ipynb
+      - file: SaS/TDNNS_intro.ipynb
+    #  - file: SaS/examples/twisted.ipynb   
+    #  - file: SaS/tdnns.ipynb
+      - file: SaS/nonlinear_tdnns.ipynb
+
+    - file: SaS/dynamics_newmark_gen_alpha.ipynb 
+      title: Dynamics
+
+    - file: SaS/beams_plates.ipynb
+      title: Beams and Plates    
+      sections:
+      - file: SaS/plates_derivation.ipynb
+      - file: SaS/Timoschenko_Bernoulli_beam.ipynb
+      - file: SaS/Kirchhoff_Love_plate.ipynb
+      - file: SaS/Reissner_Mindlin_plate.ipynb
+
+    - file: SaS/shells.ipynb
+      title: Shells 
+      sections:
+      - file: SaS/linear_nonlinear_shell_equ.ipynb
+      - file: SaS/linear_KL_RM_shell_HHJ_TDNNS.ipynb
+      - file: SaS/nonlinear_Koiter_Naghdi_shell.ipynb
+      - file: SaS/torus_buckling.ipynb
+
+    # - file: SaS/examples/examples.ipynb        
+    #   sections:
+    #   - file: SaS/examples/dynamics.ipynb    
+    #   - file: SaS/examples/twisted.ipynb    
+
+
+  - caption: Fluids
+    numbered: True
+    chapters:
+    - file: CFD/introduction.ipynb
+    - file: CFD/intro_stokes.ipynb
+      sections:
+      - file: CFD/stokes.ipynb
+      - file: CFD/stokes_iterative.ipynb
+      - file: CFD/stokes_hdg.ipynb
+      - file: CFD/hdg_tricks.ipynb
+      - file: CFD/hdivhdg_tricks.ipynb
+    - file: CFD/navierstokes_hdg.ipynb
+      sections:
+      - file: CFD/navierstokes_hdg_chorin.ipynb
+      - file: CFD/vtk.ipynb
+
+  - caption: Electromagntics
+    numbered: True
+    chapters:    
+    - url:  https://ngsolve.github.io/TEAM-problems/intro.html
+      title: TEAM problems
+    
+  - caption: Multiphysics
+    numbered: True
+    chapters:        
+    #- file: SaS/dielectricshell.ipynb
+    - file: SaS/piezopatch.ipynb
+    - file: SaS/fsi_intro.ipynb
+      title: Fluid-Structure Interaction
+      sections:
+      - file: SaS/fsi_TaylorHood.ipynb
+      - file: SaS/fsi_HDiv.ipynb
+
+  - caption: Helmholtz
+    numbered: True
+    chapters:        
+    - file: Helmholtz/HelmholtzIterative2D.ipynb
+    - file: Helmholtz/HelmholtzIterative3D.ipynb
+    - file: Helmholtz/NankaiTrough.ipynb
+
+  - caption: tba
+    numbered: True
+    chapters:        
+    - file: myaddons/myaddonsintro.ipynb
+      sections:
+      - file: myaddons/myaddons.ipynb
+      - file: myaddons/lite.ipynb
+    - file: ongoing/ongoing.ipynb
+      title: Current development
+      sections:    
+      - file: ongoing/solverlayers.ipynb
+        title: Solver layers
+      - file: ongoing/wave_cuda.ipynb
+        title: Wave-DG on GPUs
+
+
+  - caption: Teaching material
+    numbered: True
+    chapters:    
+    - url: https://jschoeberl.github.io/iFEM
+      title: Interactive FEM (J. Schöberl)
+    - url: https://simonstingelin.github.io/NGSUserMeeting24
+      title: Teaching with NGSolve (S. Stingelin)
+
+  - caption: Add on packages
+    numbered: True
+    chapters:
+    - url: https://ngsuite.pages.gwdg.de/ngsxfem
+      title: ngsxfem
+    - url: https://weggler.github.io/ngbem/intro.html
+      title: ngbem
+    - url: https://paulst.github.io/NGSTrefftz
+      title: NGSTrefftz    
+    - url: https://github.com/jayggg/ngstents
+      title: NGS-Tents        
+    - url: https://ngsolve.github.io/dcm/intro.html
+      title: Dual Cells
+    - url: https://ngspetsc.readthedocs.io/en/latest
+      title: ngsPETSc        
+
+  # - caption: Fluids
+  # - caption: Cell-Method
+  # - caption: Tent-pitching
+  # - caption: PETSc
+

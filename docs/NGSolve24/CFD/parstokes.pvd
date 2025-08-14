@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<VTKFile type ="Collection" version="1.0" byte_order="LittleEndian">
+<Collection>
+<DataSet timestep="0" part="1" file="parstokes_proc1.vtu"/>
+<DataSet timestep="0" part="2" file="parstokes_proc2.vtu"/>
+<DataSet timestep="0" part="3" file="parstokes_proc3.vtu"/>
+</Collection>
+</VTKFile>
