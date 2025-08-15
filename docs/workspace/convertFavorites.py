@@ -108,6 +108,7 @@ def main():
     
     for favorite in favorites:
         file_path = favorite.get("filePath", "")
+        file_name = Path(file_path).name
         if not file_path:
             continue
             
@@ -118,9 +119,9 @@ def main():
         if full_path.is_dir():
             print(f"📁 Processing directory: {full_path}")
             # Create subdirectory in output
-            dir_name = str(Path(file_path)).replace("/", "_").replace("\\", "_")
-            sub_output_dir = output_dir / dir_name
-            sub_output_dir.mkdir(exist_ok=True)
+            dir_name = str(Path(file_path))
+            sub_output_dir = output_dir # / dir_name
+            sub_output_dir.mkdir(parents=True, exist_ok=True)
             
             # Find all supported files in the directory
             supported_extensions = ['.ipynb', '.py', '.txt', '.md', '.rst']
@@ -128,7 +129,7 @@ def main():
                 for file in full_path.rglob(f'*{ext}'):
                     if file.is_file():
                         relative_to_dir = file.relative_to(full_path)
-                        output_name = str(relative_to_dir).replace("/", "_").replace("\\", "_")
+                        output_name = str(relative_to_dir)
                         
                         if file.suffix == '.ipynb':
                             output_name = output_name.replace('.ipynb', '.txt')
@@ -139,7 +140,7 @@ def main():
                                 skipped_count += 1
                         else:
                             if not output_name.endswith('.txt'):
-                                output_name += '.txt'
+                                output_name = Path(output_name).stem + '.txt'
                             output_path = sub_output_dir / output_name
                             if copy_text_file(file, output_path):
                                 converted_count += 1
@@ -171,7 +172,8 @@ def main():
         
         # Generate output filename
         relative_path = Path(file_path)
-        output_name = str(relative_path).replace("/", "_").replace("\\", "_")
+        # output_name = str(relative_path)
+        output_name = file_name
         
         if full_path.suffix == '.ipynb':
             output_name = output_name.replace('.ipynb', '.txt')
@@ -184,7 +186,7 @@ def main():
                 
         elif full_path.suffix in ['.py', '.txt', '.md', '.rst']:
             if not output_name.endswith('.txt'):
-                output_name += '.txt'
+                output_name = Path(output_name).stem + '.txt'
             output_path = output_dir / output_name
             
             if copy_text_file(full_path, output_path):
